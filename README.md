@@ -1,13 +1,4 @@
 # Build a Fullstack AI Chatbot with Redis, React, FastAPI and GPT
-
-- Featured on FreeCodeCamp: https://www.freecodecamp.org/news/how-to-build-an-ai-chatbot-with-redis-python-and-gpt/
-- Article Wiki: https://github.com/stephensanwo/fullstack-ai-chatbot/wiki
-- Follow Full Series: https://blog.stephensanwo.dev/series/build-ai-chatbot
-- Subscribe to new technical tutorials: https://blog.stephensanwo.dev
-
-Created: July 02, 2022
-Author: Stephen Sanwo
-
 <hr/>
 
 In order to build a working full-stack application, there are so many moving parts to think about. And you'll need to make many decisions that will be critical to the success of your app.
@@ -33,15 +24,10 @@ This is an intermediate full stack software development project that requires so
 
 I've carefully divided the project into sections to ensure that you can easily select the phase that is important to you in case you do not wish to code the full application.
 
-You can download the full repository on [My Github here](https://github.com/stephensanwo/fullstack-ai-chatbot).
-
 ### Application Architecture <a name="application-architecture"></a>
 
 Sketching out a solution architecture gives you a high-level overview of your application, the tools you intend to use, and how the components will communicate with each other.
 
-I have drawn up a simple architecture below using [draw.io](http://draw.io):
-
-![full-stack-chatbot-architecture.svg](https://github.com/stephensanwo/fullstack-ai-chatbot/blob/master/docs/full-stack-chatbot-architecture.drawio.svg)
 
 Let's go over the various parts of the architecture in more detail:
 
@@ -55,21 +41,13 @@ GPT-J-6B is a generative language model which was trained with 6 Billion paramet
 
 I have chosen to use GPT-J-6B because it is an open-source model and doesn’t require paid tokens for simple use cases.
 
-Huggingface also provides us with an on-demand API to connect with this model pretty much free of charge. You can read more about [GPT-J-6B](https://huggingface.co/EleutherAI/gpt-j-6B?text=My+name+is+Teven+and+I+am) and [Hugging Face Inference API](https://huggingface.co/inference-api).
+
 
 ### Redis
 
 When we send prompts to GPT, we need a way to store the prompts and easily retrieve the response. We will use Redis JSON to store the chat data and also use Redis Streams for handling the real-time communication with the huggingface inference API.
 
-Redis is an in-memory key-value store that enables super-fast fetching and storing of JSON-like data. For this tutorial, we will use a managed free Redis storage provided by [Redis Enterprise](https://redis.info/3NBGJRT) for testing purposes.
-
 ### Web Sockets and the Chat API
 
 To send messages between the client and server in real-time, we need to open a socket connection. This is because an HTTP connection will not be sufficient to ensure real-time bi-directional communication between the client and the server.
 
-We will be using FastAPI for the chat server, as it provides a fast and modern Python server for our use. [Check out the FastAPI documentation](https://fastapi.tiangolo.com/advanced/websockets/?h=web)) to learn more about WebSockets.
-
-Follow the full series here: https://blog.stephensanwo.dev/series/build-ai-chatbot
-
-Created: July 02, 2022
-Author: Stephen Sanwo
